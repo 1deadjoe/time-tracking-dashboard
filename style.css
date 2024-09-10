@@ -1,0 +1,286 @@
+:root {
+  --blue: hsl(246, 80%, 60%);
+  --work: hsl(15, 100%, 70%);
+  --play: hsl(195, 74%, 62%);
+  --study: hsl(348, 100%, 68%);
+  --exercise: hsl(145, 58%, 55%);
+  --social: hsl(264, 64%, 52%);
+  --self-care: hsl(43, 84%, 65%);
+  --very-dark-blue: hsl(226, 43%, 10%);
+  --dark-blue: hsl(235, 46%, 20%);
+  --desaturated-blue: hsl(235, 45%, 61%);
+  --pale-blue: hsl(236, 100%, 87%);
+}
+
+@font-face {
+  font-family: Rubik;
+  src: url(/FONTS/Rubik/Rubik-VariableFont_wght.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--very-dark-blue);
+  font-family: Rubik;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5vh 5vw;
+}
+
+main {
+  width: 100%;
+  max-width: 1110px;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+.master-panel {
+  background-color: var(--dark-blue);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.profile {
+  background-color: var(--blue);
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.profile img {
+  width: 4rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.name {
+  color: white;
+}
+
+.name p {
+  font-size: 0.9rem;
+  color: var(--pale-blue);
+}
+
+.name h1 {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.time-btns {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+button {
+  background: none;
+  border: none;
+  color: var(--pale-blue);
+  font: inherit;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+}
+
+button:hover,
+button:active,
+button.active-report {
+  color: white;
+  transform: scale(1.1);
+}
+
+.activity {
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  height: 160px;
+}
+
+.activity > img {
+  position: absolute;
+  top: -10px;
+  right: 1rem;
+  width: 4rem;
+  height: auto;
+}
+
+.activity-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--dark-blue);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 1rem 1rem 0 0;
+  height: 75%;
+  transition: background-color 0.3s;
+}
+
+.activity-body:hover {
+  cursor: pointer;
+  background-color: var(--desaturated-blue);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.header h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.time p:first-of-type {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.time p:last-of-type {
+  font-size: 0.9rem;
+  color: var(--pale-blue);
+}
+
+.hidden {
+  display: none;
+}
+
+.work {
+  background-color: var(--work);
+}
+.play {
+  background-color: var(--play);
+}
+.study {
+  background-color: var(--study);
+}
+.exercise {
+  background-color: var(--exercise);
+}
+.social {
+  background-color: var(--social);
+}
+.self-care {
+  background-color: var(--self-care);
+}
+
+/* Tablet layout */
+@media screen and (min-width: 768px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .master-panel {
+    grid-column: 1 / -1;
+  }
+
+  .profile {
+    padding: 2.5rem;
+  }
+
+  .profile img {
+    width: 5rem;
+  }
+
+  .name h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Desktop layout */
+@media screen and (min-width: 1024px) {
+  main {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+
+  .master-panel {
+    grid-column: auto;
+    grid-row: 1 / span 2;
+  }
+
+  .profile {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    height: 65%;
+  }
+
+  .profile img {
+    width: 5rem;
+    margin-bottom: 2rem;
+    margin-right: 0;
+  }
+
+  .name h1 {
+    font-size: 2.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .time-btns {
+    flex-direction: column;
+    align-items: flex-start;
+    height: 35%;
+  }
+
+  .time-btns button {
+    margin-bottom: 1rem;
+  }
+
+  .activity {
+    height: 100%;
+    min-height: 220px;
+  }
+
+  .activity-body {
+    height: 80%;
+  }
+
+  .time {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .time p:first-of-type {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Large desktop layout */
+@media screen and (min-width: 1440px) {
+  body {
+    padding: 10vh 10vw;
+  }
+
+  .activity {
+    min-height: 240px;
+  }
+
+  .name h1 {
+    font-size: 3rem;
+  }
+
+  .time p:first-of-type {
+    font-size: 3.5rem;
+  }
+}
